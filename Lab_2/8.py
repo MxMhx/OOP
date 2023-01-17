@@ -31,7 +31,6 @@ def date_diff(date_1, date_2):
 
     if int(date_2[2]) - int(date_1[2]) != 0:
         for i in range(1,(int(date_2[2])-int(date_1[2]))):
-            print('e')
             day_diff += day_in_year(int(date_1[2])+i)
     
     day_diff += day_in_year(int(date_1[2])) - (day_of_year(int(date_1[0]),int(date_1[1]),int(date_1[2])))

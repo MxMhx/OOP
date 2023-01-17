@@ -26,16 +26,14 @@ def day_in_year(year):
 
 def date_diff(date_1, date_2):
     day_diff = 0
-    date_1 = date_1.split('-')
-    date_2 = date_2.split('-')
+    date_1 = list(map(int,date_1.split('-')))
+    date_2 = list(map(int,date_2.split('-')))
 
-    if int(date_2[2]) - int(date_1[2]) != 0:
-        for i in range(1,(int(date_2[2])-int(date_1[2]))):
-            day_diff += day_in_year(int(date_1[2])+i)
+    if date_2[2] - date_1[2] != 0:
+        for i in range(1,date_2[2]-date_1[2]):
+            day_diff += day_in_year(date_1[2]+i)
     
-    day_diff += day_in_year(int(date_1[2])) - (day_of_year(int(date_1[0]),int(date_1[1]),int(date_1[2])))
-    day_diff += (day_of_year(int(date_2[0]),int(date_2[1]),int(date_2[2])) + 1)
+    day_diff += day_in_year(date_1[2]) - (day_of_year(date_1[0],date_1[1],date_1[2]))
+    day_diff += (day_of_year(date_2[0],date_2[1],date_2[2])) + 1
 
     return day_diff
-
-print(date_diff('1-1-2018','1-1-2020'))

@@ -29,11 +29,16 @@ def date_diff(date_1, date_2):
     date_1 = list(map(int,date_1.split('-')))
     date_2 = list(map(int,date_2.split('-')))
 
-    if date_2[2] - date_1[2] != 0:
-        for i in range(1,date_2[2]-date_1[2]):
-            day_diff += day_in_year(date_1[2]+i)
-    
-    day_diff += day_in_year(date_1[2]) - (day_of_year(date_1[0],date_1[1],date_1[2]))
-    day_diff += (day_of_year(date_2[0],date_2[1],date_2[2])) + 1
+    if date_1[1] <= 12 and date_1[1] >= 1 and date_2[1] <= 12 and date_2[1] >= 1 and date_1[0] <= is_leap(date_1[2])[date_1[1]-1] and date_1[0] >= 1 and date_2[0] <= is_leap(date_2[2])[date_2[1]-1] and date_2[0] >= 1:
+        if date_2[2] - date_1[2] != 0:
+            for i in range(1,date_2[2]-date_1[2]):
+                day_diff += day_in_year(date_1[2]+i)
+        
+        day_diff += day_in_year(date_1[2]) - (day_of_year(date_1[0],date_1[1],date_1[2]))
+        day_diff += (day_of_year(date_2[0],date_2[1],date_2[2])) + 1
 
-    return day_diff
+        return day_diff
+    else:
+        return -1
+
+print(date_diff('25-12-1999','9-3-2000'))

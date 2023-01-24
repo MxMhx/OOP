@@ -7,6 +7,6 @@ def calc_average_score(subject_score):
     for score in subject_score.values():
         sum += score
     sum = sum / len(subject_score)
-    return str(round(sum,2))
+    return round(sum,2)
 
-print(calc_average_score(add_score({'python' : 50,'korn' : 45},'calculus',78)))
+print(calc_average_score(add_score({'python' : 50,'korn' : 45},'calculus',40)))
